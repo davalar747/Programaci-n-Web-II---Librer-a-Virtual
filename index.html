@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web SPA - Proyecto Final</title>
+    <!-- CSS de Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <!-- Encabezado -->
+    <header class="bg-primary text-white py-4 text-center shadow-sm">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Librería Virtual</h1>
+            <p class="lead mb-0">Tu portal digital para la adquisición de libros y novedades literarias</p>
+        </div>
+    </header>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="index.html">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catalogo">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro_usuario.php">Registro Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro_libro.php">Nuevo Libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrito.php">Carrito</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <!-- Botón que activa el modal de Inicio de Sesión -->
+                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        Iniciar Sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Dinámico Principal -->
+    <main class="container my-5 flex-grow-1">
+        <!-- Presentación de la librería -->
+        <section class="p-5 mb-4 bg-white rounded-3 shadow-sm border">
+            <div class="container-fluid py-2">
+                <h2 class="display-6 fw-bold text-secondary">Bienvenido a la Librería en Línea</h2>
+                <p class="col-md-8 fs-5 text-muted">
+                    Explora nuestra selección de títulos destacados, gestiona tu pedido en tiempo real y disfruta de una plataforma segura y eficiente.
+                </p>
+                <a href="#catalogo" class="btn btn-primary btn-lg">Explorar Novedades</a>
+            </div>
+        </section>
+
+        <!-- Catálogo de Muestra / Novedades -->
+        <section id="catalogo" class="my-4">
+            <h3 class="border-bottom pb-2 mb-4 text-dark">Novedades Disponibles</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Cien años de soledad</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Gabriel García Márquez</h6>
+                            <p class="card-text text-primary fw-semibold fs-5">$15.990</p>
+                            <span class="badge bg-success mb-3">En stock</span>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="carrito.php" class="btn btn-outline-primary w-100">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">El Principito</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Antoine de Saint-Exupéry</h6>
+                            <p class="card-text text-primary fw-semibold fs-5">$9.990</p>
+                            <span class="badge bg-success mb-3">En stock</span>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="carrito.php" class="btn btn-outline-primary w-100">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">1984</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">George Orwell</h6>
+                            <p class="card-text text-primary fw-semibold fs-5">$12.990</p>
+                            <span class="badge bg-success mb-3">En stock</span>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <a href="carrito.php" class="btn btn-outline-primary w-100">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal de Inicio de Sesión -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="loginModalLabel">Inicio de Sesión</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-override="modal" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Formulario de Login -->
+                        <form id="loginForm" action="login_process.php" method="POST" novalidate>
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="loginEmail" name="email" required placeholder="ejemplo@correo.com">
+                                <div class="invalid-feedback" id="emailFeedback">
+                                    Por favor ingrese un correo electrónico válido.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="loginPassword" name="password" required placeholder="********">
+                                <div class="invalid-feedback" id="passwordFeedback">
+                                    Debe contener mín. 8 caracteres, al menos una mayúscula, un número y un símbolo especial.
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" id="btnLogin" disabled>Ingresar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <small class="text-muted">¿No tienes cuenta? <a href="registro_usuario.php">Regístrate aquí</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0 small">&copy; 2026 Librería Virtual - Proyecto Final Programación Web II</p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y Validaciones -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/login-validation.js"></script>
+</body>
+</html>
